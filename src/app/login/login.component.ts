@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       "password": this.userCredentials.value.password
     }
     console.log(loginDto)
-    this.http.post("http://localhost:8000/users/login", loginDto ).subscribe((data)=>{
+    this.http.post("https://dochat-backend.onrender.com/users/login", loginDto ).subscribe((data)=>{
       this.response = data,
       this.openSnackBar("Login Successful", 'OK');
       this.setLogin(this.response.id, this.response.full_name)

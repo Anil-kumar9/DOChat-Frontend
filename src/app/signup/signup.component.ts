@@ -72,7 +72,7 @@ export class SignupComponent implements OnInit {
       full_name: this.userDetails.value.fullName,
     }
     console.log(user)
-    this.http.post("http://localhost:8000/save", user).subscribe((data)=>{
+    this.http.post("https://dochat-backend.onrender.com/save", user).subscribe((data)=>{
       this.response = data,
       this.setLogin(this.response.id, this.response.full_name)
       this.openSnackBar('Register Successful!!!', 'OK');

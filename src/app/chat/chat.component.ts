@@ -42,7 +42,7 @@ export class ChatComponent implements OnInit {
 
   getFilesForUser(){
     let id = localStorage.getItem("user")
-    this.http.get("http://localhost:8000/files/"+String(id)).subscribe(
+    this.http.get("https://dochat-backend.onrender.com/files/"+String(id)).subscribe(
       (data)=>{
         this.files=data
         localStorage.setItem("file_id",this.files[0].file_id)
@@ -52,7 +52,7 @@ export class ChatComponent implements OnInit {
 
 
  get_chat_history(id:any){
-  this.http.get("http://localhost:8000/chat_history/"+String(id)).subscribe(
+  this.http.get("https://dochat-backend.onrender.com/chat_history/"+String(id)).subscribe(
     (data)=>{
       this.chats=data
       for(let chat of this.chats){
@@ -82,7 +82,7 @@ export class ChatComponent implements OnInit {
 
       const formData: FormData = new FormData();
       formData.append("file",this.file)
-      this.http.post("http://localhost:8000/upload/"+id,formData).subscribe(
+      this.http.post("https://dochat-backend.onrender.com/upload/"+id,formData).subscribe(
         data=>{ console.log(data)
         this.response = data
         localStorage.setItem("file_id", this.response.file_id)
@@ -106,7 +106,7 @@ export class ChatComponent implements OnInit {
   }
 
   deletefile(file_id:any){
-    this.http.delete(`http://localhost:8000/files/${file_id}`).subscribe(
+    this.http.delete(`https://dochat-backend.onrender.com/files/${file_id}`).subscribe(
       (data)=>{
         this.getFilesForUser()
         this.openSnackBar("file deleted successfully", "OK")
@@ -138,7 +138,7 @@ export class ChatComponent implements OnInit {
         "question": this.userQuestion
       }
 
-      this.http.post(`http://localhost:8000/chat/${id}`, questionDto).subscribe((data)=>{
+      this.http.post(`https://dochat-backend.onrender.com/chat/${id}`, questionDto).subscribe((data)=>{
         this.response = String(data)
         this.chatHistory.push({
           isUser: false,
