@@ -1,0 +1,68 @@
+<div class="container">
+  <div mat-dialog-title class="heading">
+    <span class="signin-heading">Login</span>
+    <span class="header-spacer"></span>
+    <span class="close">
+      <button mat-icon-button mat-dialog-close class="close-btn" tabindex="-1">
+        <mat-icon class="close-icon">close</mat-icon>
+      </button>
+    </span>
+  </div>
+  <div class="center">
+    <form [formGroup]="userCredentials" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="signin-form-field">
+        <mat-label>Enter your email</mat-label>
+        <input
+          matInput
+          formControlName="email"
+          placeholder="Enter your email"
+          type="text"
+          class="email"
+        />
+        <mat-icon matSuffix>person</mat-icon>
+        <mat-error *ngIf="userCredentials.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="userCredentials.get('email')?.hasError('email')">
+          Email is not valid.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="signin-form-field">
+        <mat-label>Enter your Password</mat-label>
+        <input
+          matInput
+          formControlName="password"
+          placeholder="Enter your Password"
+          type="password"
+          class="password"
+        />
+        <mat-icon matSuffix>lock</mat-icon>
+        <mat-error
+          *ngIf="(userCredentials.controls['password'].touched || userCredentials.controls['password'].dirty) && userCredentials.controls['password'].errors?.['required']"
+        >
+          Password is mandatory.
+        </mat-error>
+        <!-- <mat-error
+          *ngIf="(userCredentials.controls['password'].touched || userCredentials.controls['password'].dirty) && userCredentials.controls['password'].errors?.['pattern']"
+        >
+          The password should have atleast 8 characters, a number, an uppercase
+          letter, a lowercase letter and a special character.
+        </mat-error> -->
+      </mat-form-field>
+      <button
+        [disabled]="!userCredentials.valid"
+        type="submit"
+        color="primary"
+        mat-raised-button
+        class="create-button"
+      >
+        Login
+      </button>
+    </form>
+    <!-- <mat-divider class="signin-form-divider"></mat-divider> -->
+    <mat-hint class="signup-hint">
+      New?
+      <button mat-button (click)="openSignUpDialog()" class="signup-link">Create account</button>
+    </mat-hint>
+  </div>
+</div>

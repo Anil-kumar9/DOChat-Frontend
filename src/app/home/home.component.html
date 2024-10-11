@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="home-container mat-elevation-z8">
+  <!-- Hero Section -->
+  <mat-toolbar color="primary" class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to DocChat!</h1>
+      <p>Your intelligent assistant for document conversations. Upload your documents, ask questions, and keep track of every conversation.</p>
+      <button mat-raised-button color="accent" (click)="openChat()">Get Started</button>
+    </div>
+  </mat-toolbar>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <div class="feature-card">
+      <mat-icon>upload_file</mat-icon>
+      <h3>Upload Documents</h3>
+      <p>Easily upload documents in various formats and start a conversation around the content.</p>
+    </div>
+    <div class="feature-card">
+      <mat-icon>chat</mat-icon>
+      <h3>Ask Questions</h3>
+      <p>Get insights, answers, and explanations based on the content of your documents.</p>
+    </div>
+    <div class="feature-card">
+      <mat-icon>history</mat-icon>
+      <h3>Keep Chat History</h3>
+      <p>Maintain a history of every conversation for easy access and reference at any time.</p>
+    </div>
+  </div>
+
+  <!-- Call to Action Section -->
+  <div class="cta-section">
+    <h2>Ready to chat with your documents?</h2>
+    <button mat-raised-button color="primary" routerLink="/chat">Start Chatting Now</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<!-- <mat-toolbar color="primary" class="footer">
+  <span>© 2024 DocChat. All rights reserved.</span>
+</mat-toolbar> -->

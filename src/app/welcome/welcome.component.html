@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Suggested Questions</h1>
+<div mat-dialog-content>
+  <ul>
+    <li *ngFor="let question of data.questions">{{ question }}</li>
+  </ul>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Got it!</button>
+</div>

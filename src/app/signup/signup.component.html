@@ -1,0 +1,115 @@
+<div class="container">
+  <div mat-dialog-title class="heading">
+    <span class="signup-heading">Sign up</span>
+    <span class="header-spacer"></span>
+    <span class="close">
+      <button mat-icon-button mat-dialog-close class="close-btn" tabindex="-1">
+        <mat-icon class="close-icon">close</mat-icon>
+      </button>
+    </span>
+  </div>
+  <div class="center">
+    <mat-stepper linear #stepper class="register-stepper">
+      <mat-step class="" [stepControl]="userDetails">
+        <form [formGroup]="userDetails"  (ngSubmit)="submitDetails()">
+          <ng-template matStepLabel
+            >Fill out your details</ng-template
+          >
+          <mat-form-field appearance="outline" class="signup-form-field">
+            <mat-label>Full Name</mat-label>
+            <input
+              matInput
+              formControlName="fullName"
+              placeholder="Full Name"
+              type="text"
+              class="fullName"
+            />
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error
+              *ngIf="userDetails.get('fullName')?.hasError('required')"
+            >
+              Your Name is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="signup-form-field">
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              formControlName="email"
+              placeholder="Email"
+              type="text"
+              class="email"
+            />
+            <mat-icon matSuffix>email_outline</mat-icon>
+            <mat-error *ngIf="userDetails.get('email')?.hasError('required')">
+              Email is required
+            </mat-error>
+            <mat-error *ngIf="userDetails.get('email')?.hasError('email')">
+              Email is not Valid
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="signup-form-field">
+            <mat-label>Create Password</mat-label>
+            <input
+              matInput
+              formControlName="password"
+              placeholder="Create Password"
+              type="password"
+              class="password"
+              (change)="onChange()"
+            />
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-error
+              *ngIf="(userDetails.controls['password'].touched || userDetails.controls['password'].dirty) && userDetails.controls['password'].errors?.['required']"
+            >
+              Password is mandatory.
+            </mat-error>
+            <mat-error
+              *ngIf="(userDetails.controls['password'].touched || userDetails.controls['password'].dirty) && userDetails.controls['password'].errors?.['pattern']"
+            >
+              The password should have atleast 8 characters, a number, an
+              uppercase letter, a lowercase letter and a special character.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="signup-form-field">
+            <mat-label>Confirm Password</mat-label>
+            <input
+              name="confirmPassword"
+              type="password"
+              matInput
+              required
+              formControlName="confirmPassword"
+              appConfirmPasswordValidator
+              [password]="passwordTyped"
+            />
+            <mat-icon matSuffix>lock</mat-icon>
+            <mat-error
+              *ngIf="(userDetails.controls['confirmPassword'].touched || userDetails.controls['confirmPassword'].dirty) && userDetails.controls['confirmPassword'].errors?.['required']"
+            >
+              Please re-enter your password.
+            </mat-error>
+            <mat-error
+              *ngIf="(userDetails.controls['confirmPassword'].touched || userDetails.controls['confirmPassword'].dirty) && userDetails.controls['confirmPassword'].errors?.['confirmPasswordValid']"
+            >
+              Passwords didn't match
+            </mat-error>
+          </mat-form-field>
+        <button
+          [disabled]="!userDetails.valid"
+          type="submit"
+          color="primary"
+          mat-raised-button
+          class="create-button"
+        >
+          Create account
+        </button>
+        </form>
+      </mat-step>
+    </mat-stepper>
+    <!-- <mat-divider class="signup-form-divider"></mat-divider> -->
+    <mat-hint class="login-hint">
+      Already have an account?
+      <button mat-button (click)="openSigninDialog()" class="login-link">Login</button>
+    </mat-hint>
+  </div>
+</div>

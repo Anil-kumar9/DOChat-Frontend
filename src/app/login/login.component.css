@@ -1,0 +1,74 @@
+.container {
+  width: 500px;
+  /* height: 550px; */
+  height: auto;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+::ng-deep .mat-dialog-container {
+  padding: 0px;
+  height: 100%;
+}
+
+.heading {
+  margin: 0px;
+  /* border-bottom: 2px solid #e5e5e5; */
+  display: flex;
+  align-items: center;
+  height: auto;
+  /* margin-bottom: 20px; */
+  padding: 25px;
+  padding-bottom: 20px;
+}
+.signin-heading {
+  /* margin-left: 15px; */
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.signin-form-field {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.center {
+  margin: 0px;
+  height: 89%;
+  padding: 20px;
+  padding-top: 15px;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+
+/* #test-btn1{
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+} */
+.create-button {
+  /* padding: px; */
+  width: 100%;
+}
+
+.signup-hint {
+  font-size: 17px;
+  font-weight: 300;
+  /* padding: 20px; */
+  margin-top: 20px;
+  margin-left: 0px;
+  /* margin-bottom: 25px; */
+  display: block;
+}
+
+.signup-link {
+  text-decoration: none;
+  color: #673ab7;
+}
