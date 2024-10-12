@@ -82,6 +82,10 @@ form{
   color: #673ab7;
 }
 
+.close-btn{
+  color: black;
+}
+
 
 
 ::ng-deep .register-stepper .mat-horizontal-stepper-header-container {
@@ -89,4 +93,16 @@ form{
   margin-bottom: 0px !important;
 }
 
+
+@media (max-width: 601px) {
+  .signup-form-field {
+    width: 51%;
+  }
+  .create-button{
+    width: 50%;
+  }
+  .heading{
+    width: 57%;
+  }
+}
 

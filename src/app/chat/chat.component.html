@@ -1,71 +1,4 @@
-<!-- <app-navbar></app-navbar>
-<app-sidebar [files]="files" (fileDeleted)="deletefile($event)" (fileSelected)="getFileChatHistory($event)"></app-sidebar>
-<button mat-icon-button (click)="toggleSidenav()">
-  <mat-icon>menu</mat-icon>
-</button>
-<mat-sidenav-container class="chat-sidenav-container">
-  <mat-sidenav #sidenav mode="side" opened="true" class="sidebar">
-    <mat-toolbar color="primary">Previous Files</mat-toolbar>
-    <div class="files-list">
-      <mat-list>
-        <mat-list-item *ngFor="let file of files">
-          <mat-icon matListIcon>description</mat-icon>
-          <button mat-raised-button class="accent" (click)="getFileChatHistory(file.file_id)">
-            <span matLine>{{ file.file_name }}</span>
-          </button>
-          <button mat-icon-button color="warn" (click)="deletefile(file.file_id)">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </mat-list-item>
-      </mat-list>
-    </div>
-  </mat-sidenav>
-
-  <mat-sidenav-content class="col-md-9 d-flex flex-column chat-window mat-elevation-z8">
-    <div class="chat-window">
-      <mat-toolbar color="primary">Chat Interface</mat-toolbar>
-
-      <div class="chat-messages flex-grow-1" #chatMessages>
-        <div *ngFor="let message of chatHistory" [ngClass]="{'my-message': message.isUser, 'bot-message': !message.isUser}">
-          <div class="message-content">
-            <p>{{ message.text }}</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="chat-input-area">
-        <div class="input-group">
-            <div class="input-group">
-              <form class ="message-box" #chatForm="ngForm" (ngSubmit)="onSubmitQuestion(chatForm)">
-              <mat-form-field class="message-box" appearance="outline" fxFlex>
-                <input matInput type="text" [value]="userQuestion" name="userQuestion" placeholder="Ask a question..." ngModel>
-              </mat-form-field>
-              <input  class="input-group"  type="file" #fileInput style="display:none" (change)="onFileSelected($event)">
-
-              <button mat-icon-button color="primary" type="button" (click)="fileInput.click()" fxFlex="7%">
-                <mat-icon>attach_file</mat-icon>
-              </button>
-
-              <button mat-raised-button color="accent" type="submit" fxFlex="8%">
-                Send
-              </button>
-
-          </form>
-
-         </div>
-        </div>
-      </div>
-    </div>
-
-
-  </mat-sidenav-content>
-
-</mat-sidenav-container>
-
- -->
-
-
- <app-navbar [sidenav]="isSidenavOpen"  (sidenavbar)="toggleSidenav()"></app-navbar>
+<app-navbar [sidenav]="isSidenavOpen"  (sidenavbar)="toggleSidenav()"></app-navbar>
 <div class="container-fluid chat-container">
   <div class="row chat-row">
     <app-sidebar
@@ -74,7 +7,6 @@
       [class.open]="isSidenavOpen">
     </app-sidebar>
 
-    <!-- Main Chat Window -->
     <div  class="col-md-9 chat-window mat-elevation-z8">
       <mat-toolbar color="primary">Chat Interface</mat-toolbar>
       <div class="chat-messages">
@@ -85,7 +17,6 @@
         </div>
       </div>
 
-      <!-- Message Box -->
       <div class="chat-input-area">
         <div class="input-group">
           <div class="input-group">

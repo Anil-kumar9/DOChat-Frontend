@@ -12,7 +12,7 @@ import { WelcomeComponent } from '../welcome/welcome.component';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  @Input() sidenav: boolean=true;
+  @Input() sidenav: boolean=false;
 
   @Output() sidenavbar = new EventEmitter<number>();
   constructor(private router:Router, private dialog: MatDialog,private _snackBar:MatSnackBar) {

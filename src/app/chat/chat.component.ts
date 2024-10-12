@@ -22,10 +22,11 @@ export class ChatComponent implements OnInit {
   userMessage: string = '';
   files :any
   chats:any
-  isSidenavOpen: boolean = true;
+  isSidenavOpen: boolean = false;
+  isLogin = false
 
   chatHistory = [
-    { text: 'Please upload the file using attachment symbol and start DocChat', isUser: false },
+    { text: 'Please upload the file using attachment symbol and start DoChat', isUser: false },
   ];
   constructor(private http:HttpClient, private router:Router, private _snackBar: MatSnackBar){}
   ngOnInit(): void {
@@ -129,11 +130,9 @@ export class ChatComponent implements OnInit {
 
   async onSubmitQuestion(form:NgForm) {
     let id = localStorage.getItem("file_id")
-    console.log(this.userQuestion)
     this.userQuestion = form.value.userQuestion
     let params = new HttpParams().set("question", this.userQuestion)
     setTimeout(() => form.reset(), 0);
-    console.log(this.userQuestion, form.value.userQuestion)
     if (this.userQuestion.trim()) {
       this.chatHistory.push({
         isUser: true,
@@ -143,7 +142,7 @@ export class ChatComponent implements OnInit {
       let questionDto = {
         "question": this.userQuestion
       }
-
+      if(id !==null){
       this.http.post(`https://dochat-backend.onrender.com/chat/${id}`, questionDto).subscribe((data)=>{
         this.response = String(data)
         this.chatHistory.push({
@@ -151,6 +150,12 @@ export class ChatComponent implements OnInit {
           text: `Answer for: ${this.response}`
         })
       })
+    }else{
+      this.chatHistory.push({
+        isUser: false,
+        text:"Answer for: Please upload the file to start the conversation"
+      })
+    }
 
     }
   }

@@ -72,3 +72,16 @@
   text-decoration: none;
   color: #673ab7;
 }
+
+
+@media (max-width: 601px) {
+  .signin-form-field {
+    width: 51%;
+  }
+  .create-button{
+    width: 50%;
+  }
+  .heading{
+    width: 58%;
+  }
+}

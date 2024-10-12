@@ -1,6 +1,7 @@
 <mat-toolbar class="white-navbar">
-  <button mat-icon-button (click)="toggleSidenav()">
-    <mat-icon style="color: black;">menu</mat-icon>
+  <button *ngIf="isLoggedIn" mat-icon-button (click)="toggleSidenav()">
+    <mat-icon *ngIf="!sidenav" style="color: black;">history</mat-icon>
+    <mat-icon *ngIf="sidenav" style="color: black;">close</mat-icon>
   </button>
   <button mat-button routerLink="" class="brand">
     <img id="test-img" src="assets/doclogo.jpg">
@@ -15,7 +16,7 @@
   <button mat-button *ngIf="isLoggedIn" class="desktop-only">{{name}}</button>
 
   <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-only">
-    <mat-icon>menu</mat-icon>
+    <mat-icon style="color: black;">menu</mat-icon>
   </button>
 
   <mat-menu #menu="matMenu">
