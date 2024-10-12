@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">Previous Files</mat-toolbar>
+<mat-list>
+  <mat-list-item *ngFor="let file of files">
+    <mat-icon matListIcon>description</mat-icon>
+    <button mat-raised-button class="accent" (click)="selectFile(file.file_id)">
+      <span matLine>{{ file.file_name }}</span>
+    </button>
+    <button mat-icon-button color="warn" (click)="deleteFile(file.file_id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>

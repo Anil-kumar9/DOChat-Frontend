@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { SignupComponent } from '../signup/signup.component';
@@ -12,10 +12,14 @@ import { WelcomeComponent } from '../welcome/welcome.component';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  @Input() sidenav: boolean=true;
 
-  constructor(private router:Router, private dialog: MatDialog,private _snackBar:MatSnackBar) { }
+  @Output() sidenavbar = new EventEmitter<number>();
+  constructor(private router:Router, private dialog: MatDialog,private _snackBar:MatSnackBar) {
+   }
   isLoggedIn = false
   fullName = ''
+
 name:any
   ngOnInit(): void {
     console.log("anil", localStorage.getItem("user"))
@@ -53,10 +57,14 @@ name:any
 
   updateLoginStatus() {
     if(localStorage.getItem("user") !== null){
-      this.isLoggedIn = false
+      this.isLoggedIn = true
     }else{
       this.isLoggedIn = false
     }
+  }
+
+  toggleSidenav(){
+    this.sidenavbar.emit()
   }
 
   logout() {

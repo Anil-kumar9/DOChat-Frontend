@@ -13,6 +13,7 @@ import { NgMaterialModuleModule } from './ng-material-module/ng-material-module.
 import { HomeComponent } from './home/home.component';
 import { ConfirmPasswordValidatorDirective } from './confirm-password-validator.directive';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     NavbarComponent,
     HomeComponent,
     ConfirmPasswordValidatorDirective,
-    WelcomeComponent
+    WelcomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { MatSidenav } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Route, Router } from '@angular/router';
 
@@ -16,10 +17,12 @@ interface ChatMessage {
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+  @ViewChild('sidenav') sidenav!: MatSidenav;
   loggedin = false
   userMessage: string = '';
   files :any
   chats:any
+  isSidenavOpen: boolean = true;
 
   chatHistory = [
     { text: 'Please upload the file using attachment symbol and start DocChat', isUser: false },
@@ -72,6 +75,9 @@ export class ChatComponent implements OnInit {
       this.file = file;
     }
     this.onFileSubmit();
+  }
+  toggleSidenav() {
+    this.isSidenavOpen = !this.isSidenavOpen
   }
 
   // Function to handle file upload (mock)
