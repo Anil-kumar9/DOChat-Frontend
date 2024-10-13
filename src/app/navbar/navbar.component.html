@@ -1,5 +1,5 @@
 <mat-toolbar class="white-navbar">
-  <button *ngIf="isLoggedIn" mat-icon-button (click)="toggleSidenav()">
+  <button *ngIf="isLoggedIn" mat-icon-button class="mobile-only" (click)="toggleSidenav()">
     <mat-icon *ngIf="!sidenav" style="color: black;">history</mat-icon>
     <mat-icon *ngIf="sidenav" style="color: black;">close</mat-icon>
   </button>

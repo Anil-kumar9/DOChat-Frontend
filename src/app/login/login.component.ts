@@ -14,6 +14,7 @@ import { SignupComponent } from '../signup/signup.component';
 export class LoginComponent implements OnInit {
   userCredentials: FormGroup;
   response :any
+  showPassword = "password"
 
   constructor(
     private fb: FormBuilder,
@@ -41,7 +42,6 @@ export class LoginComponent implements OnInit {
       "username": this.userCredentials.value.email,
       "password": this.userCredentials.value.password
     }
-    console.log(loginDto)
     this.http.post("https://dochat-backend.onrender.com/users/login", loginDto ).subscribe((data)=>{
       this.response = data,
       this.openSnackBar("Login Successful", 'OK');
@@ -50,8 +50,7 @@ export class LoginComponent implements OnInit {
       this.dialog.closeAll()
     },
       error => {
-        this.openSnackBar("please check credentials", 'OK');
-          console.log(error)
+        this.openSnackBar("Please check your credentials", 'OK');
         }
       )
   }
@@ -60,10 +59,19 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("name", String(fullName))
   }
 
-
+  changeType(){
+    if(this.showPassword === "text" ){
+      this.showPassword = "password"
+    }else{
+      this.showPassword="text"
+      setTimeout(() => {
+        this.showPassword="password"
+      }, 2000);
+    }
+  }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 3000,
       panelClass: ['blue-snackbar'],
     });
   }

@@ -33,21 +33,15 @@
           matInput
           formControlName="password"
           placeholder="Enter your Password"
-          type="password"
+          type={{showPassword}}
           class="password"
         />
-        <mat-icon matSuffix>lock</mat-icon>
+        <mat-icon (click)="changeType()" matSuffix>lock</mat-icon>
         <mat-error
           *ngIf="(userCredentials.controls['password'].touched || userCredentials.controls['password'].dirty) && userCredentials.controls['password'].errors?.['required']"
         >
           Password is mandatory.
         </mat-error>
-        <!-- <mat-error
-          *ngIf="(userCredentials.controls['password'].touched || userCredentials.controls['password'].dirty) && userCredentials.controls['password'].errors?.['pattern']"
-        >
-          The password should have atleast 8 characters, a number, an uppercase
-          letter, a lowercase letter and a special character.
-        </mat-error> -->
       </mat-form-field>
       <button
         [disabled]="!userCredentials.valid"
@@ -59,7 +53,6 @@
         Login
       </button>
     </form>
-    <!-- <mat-divider class="signin-form-divider"></mat-divider> -->
     <mat-hint class="signup-hint">
       New?
       <button mat-button (click)="openSignUpDialog()" class="signup-link">Create account</button>

@@ -43,18 +43,7 @@
   flex: 1 1 auto;
 }
 
-
-/* #test-btn1{
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-} */
 .create-button {
-  /* padding: px; */
   width: 100%;
 }
 
@@ -75,13 +64,7 @@
 
 
 @media (max-width: 601px) {
-  .signin-form-field {
-    width: 51%;
-  }
-  .create-button{
-    width: 50%;
-  }
-  .heading{
-    width: 58%;
+  .container{
+    width: 100%
   }
 }

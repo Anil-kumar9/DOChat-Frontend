@@ -19,6 +19,7 @@ export class SignupComponent implements OnInit {
   checked: boolean = false;
   passwordTyped: string;
   response: any
+  showPassword="password"
 
   constructor(
     private fb: FormBuilder,
@@ -71,7 +72,6 @@ export class SignupComponent implements OnInit {
       password: this.userDetails.value.password,
       full_name: this.userDetails.value.fullName,
     }
-    console.log(user)
     this.http.post("https://dochat-backend.onrender.com/save", user).subscribe((data)=>{
       this.response = data,
       this.setLogin(this.response.id, this.response.full_name)
@@ -80,7 +80,7 @@ export class SignupComponent implements OnInit {
       this.dialog.closeAll()
     },
       error => {
-        this.openSnackBar(String(error), 'OK');
+        this.openSnackBar("something went wrong please try again!", 'OK');
       }
       )
   }
@@ -93,6 +93,16 @@ export class SignupComponent implements OnInit {
     this.passwordTyped = this.userDetails.value.password;
   }
 
+  changeType(){
+    if(this.showPassword === "text" ){
+      this.showPassword = "password"
+    }else{
+      this.showPassword="text"
+      setTimeout(() => {
+        this.showPassword="password"
+      }, 2000);
+    }
+  }
   openSigninDialog() {
     const dialogRef = this.dialog.open(LoginComponent);
 
@@ -102,7 +112,7 @@ export class SignupComponent implements OnInit {
   }
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 3000,
       panelClass: ['blue-snackbar'],
     });
   }

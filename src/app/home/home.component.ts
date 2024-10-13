@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router:Router, private _snackBar:MatSnackBar) { }
+  constructor(private router:Router, private _snackBar:MatSnackBar, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -17,15 +19,24 @@ export class HomeComponent implements OnInit {
   openChat(){
       if( localStorage.getItem("user") !== null){
         this.router.navigate(["/chat"])
-        this.openSnackBar("Enjoy the DocChat", "OK")
+        this.openSnackBar("Enjoy the DoChat", "OK")
       }else{
          this.openSnackBar("Please login!!", "OK")
+        this.openSigninDialog()
       }
+  }
+
+  openSigninDialog() {
+    const dialogRef = this.dialog.open(LoginComponent);
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 3000,
       panelClass: ['blue-snackbar'],
     });
   }

@@ -54,11 +54,11 @@
               matInput
               formControlName="password"
               placeholder="Create Password"
-              type="password"
+              type={{showPassword}}
               class="password"
               (change)="onChange()"
             />
-            <mat-icon matSuffix>lock</mat-icon>
+            <mat-icon (click)="changeType()" matSuffix>lock</mat-icon>
             <mat-error
               *ngIf="(userDetails.controls['password'].touched || userDetails.controls['password'].dirty) && userDetails.controls['password'].errors?.['required']"
             >
@@ -75,14 +75,14 @@
             <mat-label>Confirm Password</mat-label>
             <input
               name="confirmPassword"
-              type="password"
+              type={{showPassword}}
               matInput
               required
               formControlName="confirmPassword"
               appConfirmPasswordValidator
               [password]="passwordTyped"
             />
-            <mat-icon matSuffix>lock</mat-icon>
+            <mat-icon (click)="changeType()" matSuffix>lock</mat-icon>
             <mat-error
               *ngIf="(userDetails.controls['confirmPassword'].touched || userDetails.controls['confirmPassword'].dirty) && userDetails.controls['confirmPassword'].errors?.['required']"
             >

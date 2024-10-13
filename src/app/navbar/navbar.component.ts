@@ -22,20 +22,9 @@ export class NavbarComponent implements OnInit {
 
 name:any
   ngOnInit(): void {
-    console.log("anil", localStorage.getItem("user"))
     if(localStorage.getItem("user")!==null){
       this.isLoggedIn=true
       this.name = localStorage.getItem("name")
-    }
-  }
-  openHome(){
-    if(localStorage.getItem("user")!==null){
-      this.isLoggedIn=true
-      this.router.navigate(["chat"])
-      this.name = localStorage.getItem("name")
-    }else{
-      alert("user not loggedin")
-      this.router.navigate(["login"])
     }
   }
 
@@ -68,10 +57,6 @@ name:any
   }
 
   logout() {
-    // const dialogRef = this.dialog.open(WelcomeComponent);
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log(`Dialog result: ${result}`);    });
     localStorage.removeItem("user")
     localStorage.removeItem("name")
     localStorage.removeItem("file_id")
@@ -81,7 +66,7 @@ name:any
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 3000,
       panelClass: ['blue-snackbar'],
     });
   }

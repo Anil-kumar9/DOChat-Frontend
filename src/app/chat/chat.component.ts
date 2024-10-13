@@ -81,7 +81,6 @@ export class ChatComponent implements OnInit {
     this.isSidenavOpen = !this.isSidenavOpen
   }
 
-  // Function to handle file upload (mock)
   onFileSubmit() {
     if (this.file) {
       let id = localStorage.getItem("user")
@@ -162,7 +161,7 @@ export class ChatComponent implements OnInit {
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
-      duration: 2000,
+      duration: 3000,
       panelClass: ['blue-snackbar'],
     });
   }

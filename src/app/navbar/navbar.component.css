@@ -31,11 +31,11 @@
   }
 }
 .white-navbar {
-  background-color: white; /* White background */
-  color: whitesmoke; /* Text color */
-  border-bottom: 1px solid #ccc; /* Optional border */
+  background-color: white;
+  color: whitesmoke;
+  border-bottom: 1px solid #ccc;
 }
 
 .white-navbar .mat-button {
-  color: black; /* Buttons should also have black text */
+  color: black;
 }

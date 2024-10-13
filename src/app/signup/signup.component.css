@@ -95,14 +95,8 @@ form{
 
 
 @media (max-width: 601px) {
-  .signup-form-field {
-    width: 51%;
-  }
-  .create-button{
-    width: 50%;
-  }
-  .heading{
-    width: 57%;
+  .container{
+    width: 100%;
   }
 }
 
