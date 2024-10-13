@@ -4,7 +4,7 @@
 }
 
 .hero-section {
-  height: 400px;
+  height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,21 +75,20 @@
 
 .features-section {
   display: flex;
-  flex-wrap: wrap; /* Allows items to wrap onto the next line on smaller screens */
+  flex-wrap: wrap;
   justify-content: space-around;
-  gap: 20px; /* Adds space between the cards */
+  gap: 20px;
   padding: 20px;
 }
 
-/* Each feature card */
 .feature-card {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
-  flex-basis: calc(33.333% - 40px); /* Three cards per row, subtracting margin */
-  max-width: 300px; /* To control the max width of each card */
+  flex-basis: calc(33.333% - 40px);
+  max-width: 300px;
 }
 
 .feature-card h3 {
@@ -101,17 +100,15 @@
   color: #666;
 }
 
-/* Media query for tablets and smaller screens */
 @media screen and (max-width: 1024px) {
   .feature-card {
-    flex-basis: calc(50% - 40px); /* Two cards per row on medium screens */
+    flex-basis: calc(50% - 40px);
   }
 }
 
-/* Media query for mobile screens */
 @media screen and (max-width: 600px) {
   .feature-card {
-    flex-basis: 100%; /* One card per row on small screens */
-    max-width: 100%; /* Ensure it takes full width */
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
