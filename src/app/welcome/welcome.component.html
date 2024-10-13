@@ -1,9 +1,32 @@
-<h1 mat-dialog-title>Suggested Questions</h1>
-<div mat-dialog-content>
-  <ul>
-    <li *ngFor="let question of data.questions">{{ question }}</li>
-  </ul>
-</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Got it!</button>
+<div class="col-md-9 chat-window mat-elevation-z8">
+  <mat-toolbar color="primary">Chat Interface</mat-toolbar>
+  <div class="chat-messages">
+    <div *ngFor="let message of chatHistory" [ngClass]="{'my-message': message.isUser, 'bot-message': !message.isUser}">
+      <div class="message-content">
+        <p>{{ message.text }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chat-input-area">
+    <div class="input-group">
+      <div class="input-group">
+        <form class ="message-box" #chatForm="ngForm" (ngSubmit)="onSubmitQuestion(chatForm)">
+        <mat-form-field class="message-box" appearance="outline" fxFlex>
+          <input matInput type="text" [value]="userQuestion" name="userQuestion" placeholder="Ask a question..." ngModel>
+        </mat-form-field>
+        <input  class="input-group"  type="file" #fileInput style="display:none" (change)="onFileSelected($event)">
+
+        <button mat-icon-button color="primary" type="button" (click)="fileInput.click()" fxFlex="7%">
+          <mat-icon>attach_file</mat-icon>
+        </button>
+
+        <button mat-raised-button color="accent" type="submit" fxFlex="8%">
+          Send
+        </button>
+
+    </form>
+
+   </div>
+  </div>
 </div>

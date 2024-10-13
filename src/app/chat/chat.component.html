@@ -6,8 +6,7 @@
       class="col-md-2 sidebar"
       [class.open]="isSidenavOpen">
     </app-sidebar>
-
-    <div  class="col-md-9 chat-window mat-elevation-z8">
+    <div [class.open]="!isSidenavOpen" class="col-md-9 chat-window mat-elevation-z8">
       <mat-toolbar color="primary">Chat Interface</mat-toolbar>
       <div class="chat-messages">
         <div *ngFor="let message of chatHistory" [ngClass]="{'my-message': message.isUser, 'bot-message': !message.isUser}">

@@ -21,7 +21,7 @@
   display: inline-block;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 766px) {
   .desktop-only {
     display: inline-block;
   }

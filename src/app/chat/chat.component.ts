@@ -65,6 +65,7 @@ export class ChatComponent implements OnInit {
       }
     }
   )
+  this.isSidenavOpen=!this.isSidenavOpen
  }
 
   response:any
